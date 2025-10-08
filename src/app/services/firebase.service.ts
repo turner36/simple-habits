@@ -10,7 +10,7 @@ import {
 
 import { environment } from '../../environments/environment';
 import { AuthService } from './auth.service';
-import { Habit } from '../models';      // keep using your shared model
+import { Habit } from '../models';    
 import { Observable } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })

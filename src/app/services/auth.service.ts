@@ -11,7 +11,7 @@ export class AuthService {
   private _user: User | null = null;
 
   constructor() {
-    // Initialize Firebase app exactly once (no Angular providers needed)
+    // Initialize Firebase app exactly once 
     this.app = getApps().length ? getApp() : initializeApp(environment.firebase);
     this.auth = getAuth(this.app);
 
