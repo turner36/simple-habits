@@ -1,9 +1,10 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>Tab 3</ion-title>
+    <ion-title>Settings</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" class="ion-padding">
-  <p>Tab 3 works.</p>
+<ion-content class="ion-padding">
+  <p>UID: {{ auth.uid || 'signing in...' }}</p>
+  <p>This app uses anonymous sign-in for Firestore access.</p>
 </ion-content>

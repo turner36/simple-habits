@@ -7,13 +7,39 @@
 <ion-content class="ion-padding">
   <ion-card>
     <ion-card-header>
-      <ion-card-title>Week 6 Plugin Demo</ion-card-title>
-      <!-- On-screen timestamp for the required screenshots -->
+      <ion-card-title>Dashboard</ion-card-title>
       <ion-card-subtitle>Timestamp: {{ now | date:'medium' }}</ion-card-subtitle>
     </ion-card-header>
+
     <ion-card-content>
       <p>Cordova available: {{ cordovaAvailable }}</p>
-      <ion-button expand="block" (click)="vibrate()">Vibrate</ion-button>
+
+      <ion-item>
+        <ion-input placeholder="Habit name" [(ngModel)]="newHabitName"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-select interface="popover" [(ngModel)]="newHabitFreq">
+          <ion-select-option value="daily">Daily</ion-select-option>
+          <ion-select-option value="weekly">Weekly</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-button expand="block" (click)="addHabit()">Add Habit</ion-button>
+
+      <ion-list *ngIf="!loading; else spinner">
+        <ion-item *ngFor="let h of habits">
+          <ion-label>
+            <h2>{{ h.name }}</h2>
+            <p>Frequency: {{ h.frequency }} • Streak: {{ h.streak }}</p>
+          </ion-label>
+          <ion-button size="small" (click)="complete(h)">Log Today</ion-button>
+        </ion-item>
+      </ion-list>
+
+      <ng-template #spinner>
+        <ion-spinner name="crescent"></ion-spinner>
+      </ng-template>
     </ion-card-content>
   </ion-card>
 </ion-content>

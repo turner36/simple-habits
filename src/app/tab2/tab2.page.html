@@ -1,9 +1,17 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>Tab 2</ion-title>
+    <ion-title>Progress</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" class="ion-padding">
-  <p>Tab 2 works.</p>
+<ion-content class="ion-padding">
+  <h2>Total Streak: {{ totalStreak }}</h2>
+  <ion-list>
+    <ion-item *ngFor="let h of habits">
+      <ion-label>
+        <h3>{{ h.name }}</h3>
+        <p>Streak: {{ h.streak }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>
